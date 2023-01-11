@@ -5,7 +5,7 @@ import TodoForm from '../components/TodoForm';
 import Todos from '../components/Todos';
 import Task from '../components/Task';
 import Footer from '../components/Footer';
-import defaultTodos from './DefaultTodos';
+import DefaultTodos from './DefaultTodos';
 
 // const axios = require('axios')
 // const API_URL = "http://192.168.1.5:3001/api/tasks"
@@ -19,7 +19,7 @@ export default function Home() {
 
 	useEffect(() => {
 		if (localStorage.getItem("tasks") === null) {
-			localStorage.setItem("tasks", JSON.stringify(defaultTodos));
+			localStorage.setItem("tasks", JSON.stringify(DefaultTodos));
 		}
 		if (!tasks.length) {
 			setTasks(JSON.parse(localStorage.getItem("tasks") || ""));
