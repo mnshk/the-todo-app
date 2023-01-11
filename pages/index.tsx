@@ -5,11 +5,50 @@ import TodoForm from '../components/TodoForm';
 import Todos from '../components/Todos';
 import Task from '../components/Task';
 import Footer from '../components/Footer';
-import defaultTodos from '../pages/defaultTasks';
 
 // const axios = require('axios')
 // const API_URL = "http://192.168.1.5:3001/api/tasks"
 // export default function Home(props: { tasks: Task[] }) {
+
+const uuid = require("uuid")
+const defaultTodos = [
+	{
+		_id: uuid.v1(),
+		task: "Suspendisse pharetra auctor...",
+		completed: false
+	},
+	{
+		_id: uuid.v1(),
+		task: "Morbi at lorem ut risus bibendum fringilla vitae et arcu.",
+		completed: true
+	},
+	{
+		_id: uuid.v1(),
+		task: "Pretium, lobortis massa id, scelerisque.",
+		completed: false
+	},
+	{
+		_id: uuid.v1(),
+		task: "Phasellus eget eleifend diam. In hac habitasse platea dictumst. Phasellus iaculis nibh quis tortor pellentesque dignissim. Vivamus augue quam, posuere a consectetur nec",
+		completed: false
+	},
+	{
+		_id: uuid.v1(),
+		task: "Cras et nulla imperdiet, sodales urna at, euismod.",
+		completed: true
+	},
+	{
+		_id: uuid.v1(),
+		task: "Vivamus in malesuada eros, et molestie libero. Suspendisse ullamcorper aliquet felis, eget interdum diam. Aenean tellus.",
+		completed: false
+	},
+	{
+		_id: uuid.v1(),
+		task: "Pellentesque dictum neque pellentesque felis gravida, sit amet pellentesque.",
+		completed: true
+	},
+]
+
 
 export default function Home() {
 
