@@ -8,7 +8,7 @@ export default function Todos({ tasks, deleteTask, modifyTask, modifyTaskStatus 
     return (
         <div className="w-full flex flex-col flex-grow">
             {
-                tasks.length ?
+                tasks ?
                     (
                         <div className="p-5 px-2 overflow-auto grid gap-1 md:gap-2 lg:gap-3 md:grid-cols-2 max-w-screen-lg mx-auto">
                             {
