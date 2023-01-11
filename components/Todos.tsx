@@ -8,13 +8,13 @@ export default function Todos({ tasks, deleteTask, modifyTask, modifyTaskStatus 
     return (
         <div className="w-full flex flex-col flex-grow">
             {
-                tasks ?
+                tasks.length ?
                     (
-                        <div className="p-5 px-2 overflow-auto grid gap-1 md:gap-2 lg:gap-3 md:grid-cols-2 max-w-screen-lg mx-auto">
+                        <div className="p-5 px-2 grid gap-1 md:gap-2 lg:gap-3 md:grid-cols-2 max-w-screen-lg w-full mx-auto">
                             {
                                 tasks.map((task: Task) => {
                                     return (
-                                        <div key={task._id} className={`${task.completed ? "border-teal-400" : "border-slate-900"} border items-start active:border-orange-600 transition-all flex p-4 rounded-lg m-1 bg-slate-800 drop-shadow-lg`}>
+                                        <div key={task._id} className={`${task.completed ? "border-teal-400" : "border-slate-900"} border items-start active:border-orange-600 transition-all flex p-4 rounded-lg m-1 bg-slate-800 drop-shadow-lg overflow-auto`}>
                                             <div className="flex text-3xl my-2 mr-4" onClick={() => { modifyTaskStatus(!task.completed, task._id); }}>
                                                 {
                                                     task.completed ?
@@ -23,12 +23,12 @@ export default function Todos({ tasks, deleteTask, modifyTask, modifyTaskStatus 
                                                         <MdOutlineCheckBoxOutlineBlank className='text-slate-600' />
                                                 }
                                             </div>
-                                            <div className="font-inter text-md flex-grow flex items-center h-full">
+                                            <div className="font-inter text-md flex-grow flex items-center h-full overflow-auto" style={{wordBreak:"break-all"}}>
                                                 {task.task}
                                             </div>
                                             <div className="flex text-xl my-3 ml-3">
-                                                <FiEdit className='mr-3 text-slate-500' onClick={() => { modifyTask(task._id) }} />
-                                                <FiTrash className='text-slate-500' onClick={() => { deleteTask(task._id) }} />
+                                                <FiEdit className='mr-3 text-slate-500 active:text-teal-400' onClick={() => { modifyTask(task._id) }} />
+                                                <FiTrash className='text-slate-500 active:text-orange-600' onClick={() => { deleteTask(task._id) }} />
                                             </div>
                                         </div>
                                     )

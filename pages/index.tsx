@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
+import { Html } from 'next/document';
+
 import Header from '../components/Header';
 import TodoForm from '../components/TodoForm';
 import Todos from '../components/Todos';
@@ -10,7 +12,8 @@ import Footer from '../components/Footer';
 // const API_URL = "http://192.168.1.5:3001/api/tasks"
 // export default function Home(props: { tasks: Task[] }) {
 
-const uuid = require("uuid")
+const uuid = require("uuid");
+
 const defaultTodos = [
 	{
 		_id: uuid.v1(),
@@ -60,18 +63,20 @@ export default function Home() {
 		if (localStorage.getItem("tasks") === null) {
 			localStorage.setItem("tasks", JSON.stringify(defaultTodos));
 		}
-		if (!tasks.length) {
-			setTasks(JSON.parse(localStorage.getItem("tasks") || ""));
-		}
-		else {
-			localStorage.setItem("tasks", JSON.stringify(tasks));
-		}
+		setTasks(JSON.parse(localStorage.getItem("tasks") || ""));
+	}, [])
+
+	useEffect(() => {
+		localStorage.setItem("tasks", JSON.stringify(tasks));
 	}, [tasks])
 
 
 	const addTask = async (e: any) => {
 		e.preventDefault();
-		if (task.task === "") return
+		if (task.task.trim() === "") {
+			setTask({ task: "" })
+			return
+		}
 		try {
 			if (task._id) {
 				// const { data } = await axios.put(API_URL + "/update/?id=" + task._id, { task: task.task })
@@ -84,7 +89,7 @@ export default function Home() {
 
 			} else {
 				// const { data } = await axios.post(API_URL, task)
-				setTasks((prev) => [task, ...prev])
+				setTasks((prev) => [{ _id: uuid.v1(), task: task.task, completed: false }, ...prev])
 				setTask({ task: "" })
 			}
 		} catch (error: any) {
@@ -115,10 +120,10 @@ export default function Home() {
 	}
 
 	return (
-		<main className="flex flex-col h-screen w-full bg-slate-900 text-white">
+		<main className="flex flex-col h-screen w-full bg-slate-100 dark:bg-slate-900 dark:text-white text-black">
 			<Header />
 			<TodoForm task={task} addTask={addTask} setTask={setTask} input_field={input_field} />
-			<div className="overflow-auto flex-grow flex flex-col">
+			<div className="overflow-y-auto flex-grow flex flex-col">
 				<Todos tasks={tasks} deleteTask={deleteTask} modifyTask={modifyTask} modifyTaskStatus={modifyTaskStatus} />
 				<Footer />
 			</div>
