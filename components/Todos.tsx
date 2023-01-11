@@ -1,6 +1,6 @@
 import React from 'react'
-import { FiTrash, FiEdit, FiLink } from 'react-icons/Fi'
-import { MdOutlineCheckBoxOutlineBlank, MdCheckBox } from 'react-icons/Md'
+import { FiTrash, FiEdit, FiLink } from 'react-icons/fi'
+import { MdOutlineCheckBoxOutlineBlank, MdCheckBox } from 'react-icons/md'
 import Task from './Task'
 
 

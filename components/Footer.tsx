@@ -1,5 +1,5 @@
 import React from 'react'
-import { FiLink } from 'react-icons/Fi'
+import { FiLink } from 'react-icons/fi'
 
 export default function Footer() {
     return (
