@@ -5,7 +5,7 @@ import TodoForm from '../components/TodoForm';
 import Todos from '../components/Todos';
 import Task from '../components/Task';
 import Footer from '../components/Footer';
-import defaultTodos from './defaultTasks';
+import defaultTodos from '../pages/defaultTasks';
 
 // const axios = require('axios')
 // const API_URL = "http://192.168.1.5:3001/api/tasks"
