@@ -14,7 +14,7 @@ export default function Todos({ tasks, deleteTask, modifyTask, modifyTaskStatus 
                             {
                                 tasks.map((task: Task) => {
                                     return (
-                                        <div key={task._id} className={`${task.completed ? "border-teal-400" : "border-slate-900"} border items-start active:scale-95 transition-all flex p-4 rounded-lg m-1 bg-slate-800 drop-shadow-lg`}>
+                                        <div key={task._id} className={`${task.completed ? "border-teal-400" : "border-slate-900"} border items-start active:border-orange-600 transition-all flex p-4 rounded-lg m-1 bg-slate-800 drop-shadow-lg`}>
                                             <div className="flex text-3xl my-2 mr-4" onClick={() => { modifyTaskStatus(!task.completed, task._id); }}>
                                                 {
                                                     task.completed ?
