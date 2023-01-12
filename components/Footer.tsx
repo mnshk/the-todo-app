@@ -3,7 +3,7 @@ import { FiLink } from 'react-icons/fi'
 
 export default function Footer() {
     return (
-        <div className='p-5 pt-40 dark:bg-slate-900 bg-slate-300 text-slate-500 flex flex-col justify-center dark:text-slate-600 font-inter text-sm text-center'>
+        <div className='p-5 pt-40 dark:bg-slate-900 bg-slate-300 text-slate-500 flex flex-col justify-center dark:text-slate-600  text-sm text-center'>
             <div className='text-xs'>
                 Designed by Munish K
             </div>

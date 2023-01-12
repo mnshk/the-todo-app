@@ -23,7 +23,7 @@ export default function Todos({ tasks, deleteTask, modifyTask, modifyTaskStatus 
                                                         <MdOutlineCheckBoxOutlineBlank className='text-slate-600' />
                                                 }
                                             </div>
-                                            <div className="font-inter text-md flex-grow flex items-center h-full overflow-auto" style={{wordBreak:"break-all"}}>
+                                            <div className=" text-md flex-grow flex items-center h-full overflow-auto" style={{wordBreak:"break-all"}}>
                                                 {task.task}
                                             </div>
                                             <div className="flex text-xl my-3 ml-3">
@@ -39,7 +39,7 @@ export default function Todos({ tasks, deleteTask, modifyTask, modifyTaskStatus 
                     :
                     (
                         <div className="flex h-full w-full justify-center items-center">
-                            <div className='font-inter text-lg font-bold text-slate-600'>No Tasks Yet!</div>
+                            <div className=' text-lg font-bold text-slate-600'>No Tasks Yet!</div>
                         </div>
                     )
             }
