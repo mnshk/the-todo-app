@@ -51,6 +51,9 @@ export default function Home() {
 
 	const [tasks, setTasks] = useState<Task[]>([]);
 	const [task, setTask] = useState<Task>({ task: "" })
+
+	const [formButtonText, setFormButtonText] = useState<string>("Add")
+
 	const input_field = useRef<any>(null);
 
 	useEffect(() => {
@@ -80,6 +83,7 @@ export default function Home() {
 				oldTasks[index] = task;
 				setTasks(oldTasks)
 				setTask({ task: "" })
+				setFormButtonText("Add")
 
 			} else {
 				// const { data } = await axios.post(API_URL, task)
@@ -98,6 +102,7 @@ export default function Home() {
 	const modifyTask = async (id: string | undefined) => {
 		const currentTask = tasks.filter((t) => t._id === id)
 		setTask(currentTask[0])
+		setFormButtonText("Update")
 		input_field.current.focus();
 	}
 	const modifyTaskStatus = async (value: boolean, id: string | undefined) => {
@@ -124,7 +129,7 @@ export default function Home() {
 			<div className="font-inter flex flex-col min-h-screen w-full bg-slate-900 text-white">
 				<div className='flex flex-col w-full fixed z-30 backdrop-blur-md'>
 					<Header />
-					<TodoForm task={task} addTask={addTask} setTask={setTask} input_field={input_field} />
+					<TodoForm task={task} addTask={addTask} setTask={setTask} input_field={input_field}  formButtonText={formButtonText} />
 				</div>
 				<div className="overflow-y-auto flex-grow flex flex-col">
 					<Todos tasks={tasks} deleteTask={deleteTask} modifyTask={modifyTask} modifyTaskStatus={modifyTaskStatus} />

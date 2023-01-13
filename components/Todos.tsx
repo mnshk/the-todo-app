@@ -14,7 +14,7 @@ export default function Todos({ tasks, deleteTask, modifyTask, modifyTaskStatus 
 
     useEffect(() => {
         // Scrollbar.init(document.body, options);
-    },[])
+    }, [])
 
     return (
         <div className="w-full flex flex-col flex-grow">
@@ -31,17 +31,17 @@ export default function Todos({ tasks, deleteTask, modifyTask, modifyTaskStatus 
                                                 <div className="flex text-3xl my-2 mr-4" onClick={() => { modifyTaskStatus(!task.completed, task._id); }}>
                                                     {
                                                         task.completed ?
-                                                            <MdCheckBox className='text-teal-400' />
+                                                            <MdCheckBox className='text-teal-400 cursor-pointer' />
                                                             :
-                                                            <MdOutlineCheckBoxOutlineBlank className='text-slate-600' />
+                                                            <MdOutlineCheckBoxOutlineBlank className='text-slate-600 cursor-pointer' />
                                                     }
                                                 </div>
                                                 <div className=" text-md flex-grow flex items-center h-full overflow-auto" style={{ wordBreak: "break-all" }}>
                                                     {task.task}
                                                 </div>
                                                 <div className="flex text-xl my-3 ml-3">
-                                                    <FiEdit className='mr-3 text-slate-500 active:text-teal-400' onClick={() => { modifyTask(task._id) }} />
-                                                    <FiTrash className='text-slate-500 active:text-orange-600' onClick={() => { deleteTask(task._id) }} />
+                                                    <FiEdit className='mr-3 text-slate-500 active:text-teal-400 cursor-pointer' onClick={() => { modifyTask(task._id) }} />
+                                                    <FiTrash className='text-slate-500 active:text-orange-600 cursor-pointer' onClick={() => { deleteTask(task._id) }} />
                                                 </div>
                                             </div>
                                         )
@@ -52,9 +52,12 @@ export default function Todos({ tasks, deleteTask, modifyTask, modifyTaskStatus 
                     )
                     :
                     (
-                        <div className="flex h-full w-full justify-center items-center">
-                            <div className=' text-lg font-bold text-slate-600'>No Tasks Yet!</div>
-                        </div>
+                        <>
+                            <div className="p-40"></div>
+                            <div className="flex h-full w-full justify-center items-center">
+                                <div className=' text-lg font-bold text-slate-600'>No Tasks Yet!</div>
+                            </div>
+                        </>
                     )
             }
         </div>
