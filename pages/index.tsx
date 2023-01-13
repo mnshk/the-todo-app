@@ -61,6 +61,11 @@ export default function Home() {
 			localStorage.setItem("tasks", JSON.stringify(defaultTodos));
 		}
 		setTasks(JSON.parse(localStorage.getItem("tasks") || ""));
+
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register("/sw.js");
+			console.log("Registered");
+		}
 	}, [])
 
 	useEffect(() => {
@@ -129,7 +134,7 @@ export default function Home() {
 			<div className="font-inter flex flex-col min-h-screen w-full bg-slate-900 text-white">
 				<div className='flex flex-col w-full fixed z-30 backdrop-blur-md'>
 					<Header />
-					<TodoForm task={task} addTask={addTask} setTask={setTask} input_field={input_field}  formButtonText={formButtonText} />
+					<TodoForm task={task} addTask={addTask} setTask={setTask} input_field={input_field} formButtonText={formButtonText} />
 				</div>
 				<div className="overflow-y-auto flex-grow flex flex-col">
 					<Todos tasks={tasks} deleteTask={deleteTask} modifyTask={modifyTask} modifyTaskStatus={modifyTaskStatus} />

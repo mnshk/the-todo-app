@@ -1,0 +1,23 @@
+{
+    "short_name":"The Todo",
+    "name":"The Todo",
+    "description":"A simple Todo app to keep track of your todos",
+    "icons":[
+        {
+            "src":"/icons/icon-small-circle-192x192.png",
+            "type":"image/png",
+            "sizes":"192x192"
+        },
+        {
+            "src":"/icons/icon-small-circle-512x512.png",
+            "type":"image/png",
+            "sizes":"512x512"
+        }
+    ],
+    "start_url":"/",
+    "background_color":"#0F172A",
+    "display":"fullscreen",
+    "scope":"/",
+    "theme_color":"#0F172A",
+    "orientation":"portrait"
+}
