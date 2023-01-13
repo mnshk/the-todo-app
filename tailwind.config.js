@@ -8,10 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        inter: "'Inter', sans-serif",
-        poppins: "'Poppins', sans-serif",
-        nunitoSans: "'Nunito Sans', sans-serif",
-        bebasNeue: "'Bebas Neue', cursive",
+        inter: ['Inter', 'sans-serif'],
       },
     },
   },

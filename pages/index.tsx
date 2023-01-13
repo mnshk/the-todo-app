@@ -1,16 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-
-import { Html } from 'next/document';
-
+import Head from 'next/head';
+import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import Header from '../components/Header';
 import TodoForm from '../components/TodoForm';
 import Todos from '../components/Todos';
 import Task from '../components/Task';
 import Footer from '../components/Footer';
-
-// const axios = require('axios')
-// const API_URL = "http://192.168.1.5:3001/api/tasks"
-// export default function Home(props: { tasks: Task[] }) {
 
 const uuid = require("uuid");
 
@@ -51,7 +46,6 @@ const defaultTodos = [
 		completed: true
 	},
 ]
-
 
 export default function Home() {
 
@@ -120,14 +114,25 @@ export default function Home() {
 	}
 
 	return (
-		<main className="flex flex-col h-screen w-full bg-slate-100 dark:bg-slate-900 dark:text-white text-black">
-			<Header />
-			<TodoForm task={task} addTask={addTask} setTask={setTask} input_field={input_field} />
-			<div className="overflow-y-auto flex-grow flex flex-col">
-				<Todos tasks={tasks} deleteTask={deleteTask} modifyTask={modifyTask} modifyTaskStatus={modifyTaskStatus} />
-				<Footer />
+		<>
+			<Head>
+				<title>The ToDo's</title>
+				<meta name="description" content="The ToDo's" />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<meta name="theme-color" content="rgb(15 23 42)" />
+			</Head>
+			<div className="font-inter flex flex-col min-h-screen w-full bg-slate-900 text-white">
+				<div className='flex flex-col w-full fixed z-30 backdrop-blur-md'>
+					<Header />
+					<TodoForm task={task} addTask={addTask} setTask={setTask} input_field={input_field} />
+				</div>
+				<div className="overflow-y-auto flex-grow flex flex-col">
+					<Todos tasks={tasks} deleteTask={deleteTask} modifyTask={modifyTask} modifyTaskStatus={modifyTaskStatus} />
+					<Footer />
+				</div>
+				<div className="fade-botton-wrapper"></div>
 			</div>
-		</main>
+		</>
 	)
 }
 
