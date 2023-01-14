@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en" className='dark'>
       <Head>
         <link rel="manifest" href="manifest.webmanifest.json" />
-        <link rel="shortcut icon" href="/icons/icon-small-circle-192x192.png" type="image/png" />
+        <link rel="shortcut icon" href="/icons/icon-192.png" type="image/png" />
       </Head>
       <body>
         <Main />

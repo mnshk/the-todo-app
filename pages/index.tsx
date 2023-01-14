@@ -61,11 +61,6 @@ export default function Home() {
 			localStorage.setItem("tasks", JSON.stringify(defaultTodos));
 		}
 		setTasks(JSON.parse(localStorage.getItem("tasks") || ""));
-
-		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register("/sw.js");
-			console.log("Registered");
-		}
 	}, [])
 
 	useEffect(() => {
